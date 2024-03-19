@@ -14,7 +14,7 @@ Matrix >> data [
 
 { #category : #initialization }
 Matrix >> initializeWithData: dataArray rows: rows columns: columns [
-    "Cette méthode initialise une nouvelle instance de DenseMatrix avec les données spécifiées."
+    "This method initializes a new DenseMatrix instance with the specified data."
 
     | rowIndex columnIndex |
     data := Array new: rows.
