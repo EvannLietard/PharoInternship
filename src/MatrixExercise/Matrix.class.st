@@ -30,20 +30,24 @@ Matrix >> getSpecificValue: i column: j [
 Matrix >> initializeWithData: dataArray rows: rows columns: columns [
     "This method initializes a new DenseMatrix instance with the specified data."
 
-    | rowIndex columnIndex |
+    | rowIndex columnIndex rowCount |
     data := Array new: rows.
+	 rowCount := 0.
     rowIndex := 1.
     dataArray do: [ :row |
         | newRow |
+		  rowCount := rowCount + 1.
         newRow := Array new: columns.
         columnIndex := 1.
         row do: [ :element |
             newRow at: columnIndex put: element.
             columnIndex := columnIndex + 1.
         ].
+			(columnIndex - 1 < columns) ifTrue: [ self error: 'Dont have enought column' ].
         data at: rowIndex put: newRow.
         rowIndex := rowIndex + 1.
     ].
+	 (rowCount < rows) ifTrue: [ self error: 'Dont have enought line' ].
 ]
 
 { #category : #accessing }
