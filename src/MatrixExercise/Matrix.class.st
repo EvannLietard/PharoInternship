@@ -43,11 +43,11 @@ Matrix >> initializeWithData: dataArray rows: rows columns: columns [
             newRow at: columnIndex put: element.
             columnIndex := columnIndex + 1.
         ].
-			(columnIndex - 1 < columns) ifTrue: [ self error: 'Dont have enought column' ].
+			(columnIndex - 1 < columns) ifTrue: [ self error: 'Dont have enought column in the array' ].
         data at: rowIndex put: newRow.
         rowIndex := rowIndex + 1.
     ].
-	 (rowCount < rows) ifTrue: [ self error: 'Dont have enought line' ].
+	 (rowCount < rows) ifTrue: [ self error: 'Dont have enought line in the array' ].
 ]
 
 { #category : #accessing }
@@ -61,9 +61,9 @@ Matrix >> rows [
 Matrix >> setSpecificValue: i column: j to: value [
     "Définit une valeur à un emplacement spécifique dans la matrice."
 
-    (i < 1 or: [ j < 1 ]) ifTrue: [ self error: 'Les indices ne peuvent pas être inférieurs à 1.' ].
+    (i < 1 or: [ j < 1 ]) ifTrue: [ self error: 'Indices cannot be less than 1.' ].
 
-    (i > data size or: [ j > (data at: 1) size ]) ifTrue: [ self error: 'Indices hors des limites de la matrice.' ].
+    (i > data size or: [ j > (data at: 1) size ]) ifTrue: [ self error: 'Indices outside the bounds of the matrix.' ].
 
     (data at: i) at: j put: value.
 
