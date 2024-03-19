@@ -21,3 +21,12 @@ MatrixTest >> testSpecificGetter [
 	mat:= Matrix new initializeWithData: #(#(1 2)#(4 1)) rows: 2  columns: 2.
 	self assert: (mat getSpecificValue: 1 column:2 ) equals: 2.
 ]
+
+{ #category : #tests }
+MatrixTest >> testSpecificSetter [
+	"test the method setSpecificValue"
+	|mat|
+	mat:= Matrix new initializeWithData: #(#(1 2)#(4 1)) rows: 2  columns: 2.
+	mat setSpecificValue: 1 column: 2 to: 6.
+	self assert: (mat getSpecificValue: 1 column:2 ) equals: 6.
+]

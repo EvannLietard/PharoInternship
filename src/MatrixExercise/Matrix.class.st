@@ -56,3 +56,15 @@ Matrix >> rows [
 	^ data size
 
 ]
+
+{ #category : #initialization }
+Matrix >> setSpecificValue: i column: j to: value [
+    "Définit une valeur à un emplacement spécifique dans la matrice."
+
+    (i < 1 or: [ j < 1 ]) ifTrue: [ self error: 'Les indices ne peuvent pas être inférieurs à 1.' ].
+
+    (i > data size or: [ j > (data at: 1) size ]) ifTrue: [ self error: 'Indices hors des limites de la matrice.' ].
+
+    (data at: i) at: j put: value.
+
+]
