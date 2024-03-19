@@ -53,12 +53,10 @@ MatrixTest >> testSpecificSetter [
 { #category : #tests }
 MatrixTest >> testToCompactMatrix [ 
 	| mat compactMatrix  |
-	mat:= Matrix new initializeWithData: #(#(1 2)#(2 1)) rows: 2  columns: 2.
+	mat:= Matrix new initializeWithData: #(#(1 0)#(0 1)) rows: 2  columns: 2.
 	compactMatrix:= mat toCompactMatrix .
-	self assert: compactMatrix size = 4.
+	self assert: compactMatrix size = 2.
    self assert: (compactMatrix at: 1) = #(1 1 1).
-   self assert: (compactMatrix at: 2) = #(1 2 2).
-	self assert: (compactMatrix at: 3) = #(2 1 2).
-	self assert: (compactMatrix at: 4) = #(2 2 1).
+	self assert: (compactMatrix at: 2) = #(2 2 1).
 
 ]
