@@ -24,6 +24,16 @@ MatrixTest >> testInitialize [
 ]
 
 { #category : #tests }
+MatrixTest >> testInitializeAtZero [
+	| mat |
+	mat:= Matrix new initializeWithZeros: 2 columns: 2.
+	self assert: mat data size equals: 2.
+	self assert: (mat data at: 1) equals: #(0 0 ).
+	self assert: (mat data at: 2) equals: #(0 0 ).
+
+]
+
+{ #category : #tests }
 MatrixTest >> testSpecificGetter [
 	"test the method getSpecificValue"
 	|mat|

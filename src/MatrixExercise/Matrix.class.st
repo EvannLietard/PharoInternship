@@ -64,6 +64,13 @@ Matrix >> initializeWithData: dataArray rows: rows columns: columns [
 	 (rowCount < rows) ifTrue: [ self error: 'Dont have enought line in the array' ].
 ]
 
+{ #category : #initialization }
+Matrix >> initializeWithZeros: rowCount columns: columnCount [
+    "Initializes the matrix with zeros."
+
+    data := Array new: rowCount withAll: (Array new: columnCount withAll: 0)
+]
+
 { #category : #accessing }
 Matrix >> rows [ 
 	"This method returns the number of rows of the matrix."
