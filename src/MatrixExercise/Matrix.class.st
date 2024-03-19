@@ -82,3 +82,27 @@ Matrix >> setSpecificValue: i column: j to: value [
     (data at: i) at: j put: value.
 
 ]
+
+{ #category : #counter }
+Matrix >> toCompactMatrix [ 
+        "Converts the matrix to a compact representation."
+
+    | size compactMatrix k value rows columns |
+    size := self countNotZerosInData.
+    compactMatrix := Array new: size withAll: (Array new: 3).
+    k := 1.
+
+    rows := self rows. "Ajout de l'initialisation de rows"
+    columns := self columns. "Ajout de l'initialisation de columns"
+
+    (1 to: rows) do: [ :i |   "Ajustement pour commencer à 1"
+        (1 to: columns) do: [ :j |   "Ajustement pour commencer à 1"
+            value := self getSpecificValue: i column: j.
+            value = 0 ifFalse: [
+                compactMatrix at: k put: (Array with: i with: j with: value).
+                k := k + 1.
+            ]
+        ]
+    ].
+    ^ compactMatrix
+]

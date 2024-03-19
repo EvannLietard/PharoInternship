@@ -39,3 +39,16 @@ MatrixTest >> testSpecificSetter [
 	mat setSpecificValue: 1 column: 2 to: 6.
 	self assert: (mat getSpecificValue: 1 column:2 ) equals: 6.
 ]
+
+{ #category : #tests }
+MatrixTest >> testToCompactMatrix [ 
+	| mat compactMatrix  |
+	mat:= Matrix new initializeWithData: #(#(1 2)#(2 1)) rows: 2  columns: 2.
+	compactMatrix:= mat toCompactMatrix .
+	self assert: compactMatrix size = 4.
+   self assert: (compactMatrix at: 1) = #(1 1 1).
+   self assert: (compactMatrix at: 2) = #(1 2 2).
+	self assert: (compactMatrix at: 3) = #(2 1 2).
+	self assert: (compactMatrix at: 4) = #(2 2 1).
+
+]
