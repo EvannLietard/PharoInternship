@@ -13,6 +13,20 @@ Matrix >> columns [
 	^ (data first) size
 ]
 
+{ #category : #counter }
+Matrix >> countNotZerosInData [ 
+    "Counts the number of non-zero elements in the matrix."
+    | notZeroCount |
+    notZeroCount := 0.
+    data do: [ :row |
+        row do: [ :element |
+            element = 0 ifFalse: [ notZeroCount := notZeroCount + 1 ].
+        ].
+    ].
+    ^ notZeroCount
+
+]
+
 { #category : #accessing }
 Matrix >> data [
 	^ data

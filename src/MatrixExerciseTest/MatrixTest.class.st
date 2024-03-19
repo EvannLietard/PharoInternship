@@ -5,6 +5,15 @@ Class {
 }
 
 { #category : #tests }
+MatrixTest >> testCounterNotZeroElement [
+	"test the method getSpecificValue"
+	|mat|
+	mat:= Matrix new initializeWithData: #(#(1 2)#(4 1)) rows: 2  columns: 2.
+	self assert: (mat countNotZerosInData) equals:4.
+
+]
+
+{ #category : #tests }
 MatrixTest >> testInitialize [
 	|mat|
 	mat:= Matrix new initializeWithData: #(#(1 2)#(2 1)) rows: 2  columns: 2.
